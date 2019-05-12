@@ -12,6 +12,7 @@ install:
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
+  - sudo ln -s /usr/include/freetype2/ft2build.h /usr/include/ # https://github.com/matplotlib/matplotlib/issues/3029#issuecomment-43318941
   - mkdir qtbuild
   - cd qtbuild
   - cmake -D GUI=QT5 -D CMAKE_BUILD_TYPE=Release -D MAX_IMAGE_SCALE_MUL=2 -D DOC_DATA_COMPRESSION_LEVEL=3 -D DOC_BUFFER_SIZE=0x1400000 -D CMAKE_INSTALL_PREFIX=/usr ..
